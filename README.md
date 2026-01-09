@@ -68,8 +68,12 @@ A lightweight convolutional autoencoder is used:
 	•	Skip connection between early encoder and late decoder layers
 	•	Trained using mean squared error (MSE) loss
 
-The architecture is intentionally simple to keep the focus on understanding model behaviour rather than performance tuning. 
-I did experiment with different models initially with small image training count but in the end stuck with this one as it was giving the best results. No checkerboard patterns or over-smoothing.
+The architecture is intentionally simple to keep the focus on understanding model 
+behaviour rather than performance tuning. 
+
+I did experiment with different models initially with small image training
+count but in the end stuck with this one as it was giving the best results
+and was not doing checkerboard patterns or over-smoothing.
 
 
 ## Training 
