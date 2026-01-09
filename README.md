@@ -9,9 +9,15 @@ The goal is to gain hands-on experience with:
 - Training and evaluating CNN-based autoencoders in PyTorch
 - Analysing the effect of training duration on denoising performance
 
-To see examples of denoising refer to denoising_examples/ folder. The figures show noisy, denoised and ground truth images. 3x2 and 5x2 examples are available. Check the file name of the .png for info on epoch and image count used for the model. All 3x2 examples are of the best model of 1000 epochs and 1000 images. 5x2 examples include examples of 10, 100, 1000 epochs, all trained on 1000 images.
+To see examples of denoising refer to denoising_examples/ folder. 
+The figures show noisy, denoised and ground truth images. 
+3x2 and 5x2 examples are available. 
+Check the file name of the .png for info on epoch and image count used for the model. 
+All 3x2 examples are of the best model of 1000 epochs and 1000 images. 
+5x2 examples include examples of 10, 100, 1000 epochs, all trained on 1000 images.
 
-To see convergence of MSE for varying epoch numbers see plots/ folder. Check filenames of .png for info on epoch and image count used for the model.
+To see convergence of MSE for varying epoch numbers see plots/ folder. 
+Check filenames of .png for info on epoch and image count used for the model.
 
 ---
 
@@ -62,7 +68,8 @@ A lightweight convolutional autoencoder is used:
 	•	Skip connection between early encoder and late decoder layers
 	•	Trained using mean squared error (MSE) loss
 
-The architecture is intentionally simple to keep the focus on understanding model behaviour rather than performance tuning. I did experiment with different models initially with small image training count but in the end stuck with this one as it was giving the best results. No checkerboard patterns or over-smoothing.
+The architecture is intentionally simple to keep the focus on understanding model behaviour rather than performance tuning. 
+I did experiment with different models initially with small image training count but in the end stuck with this one as it was giving the best results. No checkerboard patterns or over-smoothing.
 
 
 ## Training 
@@ -80,29 +87,27 @@ Training scripts allow easy experimentation with:
 
 To train a model: python scripts/train_autoencoder.py
 
+If you train a new model with different image or epoch number from the ones existing,
+its automatically stored in trained_models/ 
+
 Validation MSE is recorded and plotted versus epoch number.
 
-See plots/ for examples 
+See plots/ for examples.
 
 
 ## Using a trained model
 
 Previously trained models can be loaded and applied to noisy images for qualitative evaluation.
 
+3 different models of varying epoch training number are available in trained_models/ 
+All of them are trained on 1000 images. 
+
 To run inference with a trained model: python scripts/use_trained_autoencoder.py
 
-You can choose a different model by editing the endpath on line 51 of use_trained_autoencoder.py
-
-3 different models of varying epoch training number are available in /trained_models. All of them are trained on 1000 images. If you train new models with different image or epoch number from the ones existing, they are automatically stored in /trained_models.
-
-This script visualises:
-	•	Noisy input
-	•	Denoised output
-	•	Clean ground truth
-
+You can choose a different model to run by editing the endpath on line 51 of use_trained_autoencoder.py
 
 
 ## Notes
 
-    •   This project was developed as a learning exercise, combining independent experimentation with the use of modern AI-assisted tools to explore model architectures and training behaviour.
+    •   This project was developed as a learning exercise, combining independent experimentation with modern AI-assisted tools to explore CNN architectures and training behaviour.
     •	Future extensions could include different noise models, deeper architectures, or quantitative image quality metrics (PSNR, SSIM).
